@@ -9,8 +9,8 @@ The patterns in this tier remove ambiguity. After Tier 1, every install reproduc
 1. [Commit a lockfile](./commit-a-lockfile.md) — every package manager, frozen in CI
 2. [SHA-pin every third-party GitHub Action](./sha-pin-actions.md) — full 40-character commit SHAs, never tags or branches
 3. [Pin the runner OS](./pin-runner-os.md) — versioned labels (`ubuntu-24.04`), never floating aliases
-4. Pin the language toolchain _(coming in a later v0.1.x)_
-5. Minimal workflow permissions _(coming in a later v0.1.x)_
+4. [Pin the language toolchain](./pin-language-toolchain.md) — tracked file per ecosystem, source of truth for the `setup-*` action
+5. [Minimal workflow permissions](./minimal-permissions.md) — `permissions: { contents: read }` as the default; widen per job only when needed
 
 ## Cross-tier worked example
 
