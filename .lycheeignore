@@ -14,3 +14,13 @@
 
 # GitHub's own anchor-only fragments lychee can't always resolve
 ^#$
+
+# Our future render surface — wired up alongside v0.1.0 content; until
+# then the link is correct but the page 404s. Re-enable once docs-hub
+# mounts /supply-chain/.
+^https://docs\.ozarksecuritylabs\.com/supply-chain/?$
+
+# Scorecard viewer is human-facing and slow; the API badge endpoint is
+# what actually matters for CI. Excluding the viewer keeps lychee
+# deterministic without losing the badge.
+^https://scorecard\.dev/viewer/
