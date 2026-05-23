@@ -35,5 +35,7 @@ jobs:
           args: >-
             --no-progress
             --max-concurrency 4
+            --max-retries 2
+            --retry-wait-time 5
             './**/*.md'
           fail: true
