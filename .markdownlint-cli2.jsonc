@@ -1,0 +1,37 @@
+{
+  // markdownlint-cli2 config for this repository.
+  // Defaults are sensible; we relax a few rules that conflict with how
+  // technical reference docs are typically authored.
+  "config": {
+    "default": true,
+
+    // Allow long lines: this guide unwraps prose (one sentence per
+    // line is fine, and snippets follow their own ecosystem's
+    // conventions).
+    "MD013": false,
+
+    // Allow inline HTML for badge rows and the occasional <details>
+    // block in long appendices.
+    "MD033": false,
+
+    // Don't require the first line of every file to be an H1 — the
+    // mirrored Starlight site injects its own page title from
+    // frontmatter; we use H1 as the on-GitHub title.
+    "MD041": false,
+
+    // Code blocks without a language are fine for raw config snippets
+    // that don't have an obvious highlighter (e.g. plain output).
+    "MD040": false
+  },
+
+  "globs": [
+    "**/*.md"
+  ],
+
+  "ignores": [
+    "node_modules/**",
+    "deterministic-deps-report/**",
+    "reports/**",
+    ".git/**"
+  ]
+}

@@ -1,0 +1,19 @@
+# Configuration for Ozark-Security-Labs/deterministic-deps.
+#
+# This repository dogfoods the patterns it preaches: the action runs in
+# enforce mode at the lowest severity threshold against the repo's own
+# workflows. Any rule a Tier 1/2/3 chapter asks readers to adopt must
+# pass cleanly here first.
+#
+# See docs/rules.md and docs/configuration.md in the action repo for the
+# full schema:
+# https://github.com/Ozark-Security-Labs/deterministic-deps
+
+mode: enforce
+severity-threshold: low
+
+exclude:
+  - deterministic-deps-report/**
+  - reports/**
+
+allowlist: []

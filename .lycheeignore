@@ -1,0 +1,16 @@
+# Hosts and patterns that lychee should not attempt to verify.
+# Keep this list narrow — broken external links are usually worth
+# learning about, not silencing.
+
+# Placeholder hosts commonly used in examples
+^https?://example\.(com|org|net)/?
+^https?://localhost(:[0-9]+)?/?
+^https?://127\.0\.0\.1(:[0-9]+)?/?
+
+# Bot-hostile hosts that frequently return 403/429 to scrapers
+^https?://(www\.)?linkedin\.com/
+^https?://(www\.)?x\.com/
+^https?://twitter\.com/
+
+# GitHub's own anchor-only fragments lychee can't always resolve
+^#$

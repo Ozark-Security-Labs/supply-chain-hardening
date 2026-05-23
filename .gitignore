@@ -1,0 +1,23 @@
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# deterministic-deps and other scan outputs
+deterministic-deps-report/
+reports/
+*.sarif
+
+# lychee cache
+.lycheecache
+
+# Node tooling (if any local helper scripts get added later)
+node_modules/
+npm-debug.log*
+
+# Local-only env
+.env
+.env.local

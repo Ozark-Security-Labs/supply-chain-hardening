@@ -1,0 +1,15 @@
+# Keep pinned action SHAs current. Mirrors the forkguard / SessionScope
+# pattern: weekly schedule, US-Central business hours.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:30"
+      timezone: America/Chicago
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - github-actions

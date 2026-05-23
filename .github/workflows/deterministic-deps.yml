@@ -1,0 +1,46 @@
+# Dogfoods the rule set this guide preaches. Runs in enforce mode at the
+# lowest severity threshold so any finding fails the build.
+#
+# This repo's own .deterministic-deps.yml configures the scanner.
+
+name: dependency determinism
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "7 10 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  deterministic-deps:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+
+      - id: deterministic-deps
+        uses: Ozark-Security-Labs/deterministic-deps@838ba7893ec59d17e7883fbc1629a222dacb431b
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          mode: enforce
+          severity-threshold: low
+          sarif: true
+          remote-validation: true
+
+      - uses: github/codeql-action/upload-sarif@4f3212b61783c3c68e8309a0f18a699764811cda
+        if: always() && steps.deterministic-deps.outputs.sarif-path != ''
+        with:
+          sarif_file: ${{ steps.deterministic-deps.outputs.sarif-path }}
+          category: deterministic-deps
+
+      - name: Fail when deterministic-deps failed
+        if: steps.deterministic-deps.outcome == 'failure'
+        run: exit 1
