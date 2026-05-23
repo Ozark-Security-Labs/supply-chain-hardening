@@ -131,8 +131,7 @@ GitHub verifies the signature against the user's published keys at github.com/<u
 
 - **`deterministic-deps`** doesn't check rulesets — it's static-analysis of in-tree files, not GitHub-API state.
 - **Alternatives:**
-  - The [`AlexJReid/branch-protection-bot`](https://github.com/marketplace/actions/branch-protection-bot) action applies branch-protection JSON in CI
-  - [`probot/rulesets`](https://github.com/probot/rulesets) (community) handles ruleset drift detection
+  - The [`AlexJReid/branch-protection-bot`](https://github.com/marketplace/actions/branch-protection-bot) action applies branch-protection JSON in CI; community-maintained ruleset-drift-detection bots exist but none has emerged as canonical yet
   - GitHub's own [Repository Settings API](https://docs.github.com/en/rest/repos/rules) is the ground truth; any inspection script that uses `gh api .../rulesets` is canonical
 - **Manual:**
 

@@ -117,6 +117,6 @@ SLSA's `slsa-github-generator` reusable workflow signs the provenance attestatio
 
 ## Real example
 
-No public Ozark-Security-Labs project currently uses standalone `cosign sign-blob` on release artifacts; the org's release pipelines rely on SLSA provenance (which is sigstore-signed under the hood by `slsa-github-generator`) plus reproducible builds for verifiable identity. For a strong external example, see [`sigstore/cosign`'s own release workflow](https://github.com/sigstore/cosign/tree/main/.github/workflows) — they sign their own releases this way as the canonical reference.
+No public Ozark-Security-Labs project currently uses standalone `cosign sign-blob` on release artifacts; the org's release pipelines rely on SLSA provenance (which is sigstore-signed under the hood by `slsa-github-generator`) plus reproducible builds for verifiable identity. For a strong external example, see [`sigstore/cosign`'s own release workflows directory](https://github.com/sigstore/cosign/tree/main/.github/workflows) (`cut-release.yml` and friends) — they sign their own releases this way as the canonical reference.
 
 Adding a standalone `cosign sign-blob` step to one of the existing OSL release pipelines (likely `SessionScope`, as the most mature release flow) is a near-term follow-up; the value is the *separate* verification path it provides on top of SLSA provenance.
