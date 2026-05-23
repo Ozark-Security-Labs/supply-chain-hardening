@@ -24,3 +24,10 @@
 # what actually matters for CI. Excluding the viewer keeps lychee
 # deterministic without losing the badge.
 ^https://scorecard\.dev/viewer/
+
+# slsa.dev has had multiple sustained outages where even our maxed-out
+# retry budget (6 attempts, 30s timeout each, 10s backoff) hits
+# "Connection failed" on every attempt. The spec URLs themselves are
+# stable references — verify the link manually when authoring; trust
+# slsa.dev to be the canonical source even when its host is flapping.
+^https://slsa\.dev/
