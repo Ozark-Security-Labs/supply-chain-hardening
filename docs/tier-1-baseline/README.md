@@ -7,7 +7,7 @@ The patterns in this tier remove ambiguity. After Tier 1, every install reproduc
 ## Patterns
 
 1. [Commit a lockfile](./commit-a-lockfile.md) — every package manager, frozen in CI
-2. SHA-pin every third-party GitHub Action _(coming in a later v0.1.x)_
+2. [SHA-pin every third-party GitHub Action](./sha-pin-actions.md) — full 40-character commit SHAs, never tags or branches
 3. Pin the runner OS _(coming in a later v0.1.x)_
 4. Pin the language toolchain _(coming in a later v0.1.x)_
 5. Minimal workflow permissions _(coming in a later v0.1.x)_
