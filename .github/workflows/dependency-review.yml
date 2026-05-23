@@ -1,0 +1,25 @@
+# Flags vulnerable, malicious, or license-incompatible dependencies in
+# PR diffs. Requires the GitHub Dependency Graph to be enabled at the
+# repository (or org default), which is the prerequisite called out in
+# the Tier 2 chapter.
+
+name: dependency review
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+
+      - uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48
+        with:
+          fail-on-severity: moderate
+          comment-summary-in-pr: on-failure
