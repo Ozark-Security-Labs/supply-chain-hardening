@@ -20,10 +20,12 @@
 # mounts /supply-chain/.
 ^https://docs\.ozarksecuritylabs\.com/supply-chain/?$
 
-# Scorecard viewer is human-facing and slow; the API badge endpoint is
-# what actually matters for CI. Excluding the viewer keeps lychee
-# deterministic without losing the badge.
-^https://scorecard\.dev/viewer/
+# scorecard.dev (the entire host, not just /viewer/) has had connection
+# failures during sustained outages where lychee's retry budget can't
+# recover. The api.scorecard.dev endpoint (which serves the badge image)
+# is a different host and stays in-scope; only the human-facing
+# scorecard.dev pages are excluded.
+^https://scorecard\.dev/
 
 # slsa.dev has had multiple sustained outages where even our maxed-out
 # retry budget (6 attempts, 30s timeout each, 10s backoff) hits
